@@ -1,2 +1,40 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class='row'>
+  <div class='col-md-4'>
+	<div class="panel panel-info">
+	  <div class='panel-heading'>
+		<h4 class='text-primary'><%= @user.name %></h4>
+	  </div>
+	  <div class='panel-body'>
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+		tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+		vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+		no sea takimata sanctus est Lorem ipsum dolor sit amet.
+	  </div>
+	</div>
+  </div>
+  <div class='col-md-8'>
+	<div class="panel panel-info">
+	  <div class='panel-heading'>
+		<h4 class='text-primary'>My events(<%= @user.created_events.count%>)</h4>
+	  </div>
+	  <div class='panel-body'>
+		<% if @user.created_events.any? %>
+		  <% @user.created_events.order(created_at: :desc).each do |event| %>
+			<div class='event'>
+			  <h4 class='text-info event-title'><%= event.title %></h4>
+			  <p class="event-description"><%= event.description%></p>
+			  <div class='loc-time'>
+				<p class='event-location text-muted'>
+				  <span class='glyphicon glyphicon-road'></span> <%= event.location%>
+				</p>
+				<p class="event-date">
+				  <span class='glyphicon glyphicon-time'></span> <%= event.date.strftime("%b %d, %Y")%>
+				</p>
+			  </div>
+			</div>
+		  <% end %>
+		<% else %>
+		  <h4 class="text-warning">This user has no events yet!</h4>
+		<% end %>
+	  </div>
+</div>

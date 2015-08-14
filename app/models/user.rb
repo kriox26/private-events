@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
 
+  # Associations
+  has_many :created_events, class_name: "Event", foreign_key: :creator_id, dependent: :destroy
+
 
 
 
