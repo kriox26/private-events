@@ -1,0 +1,16 @@
+<%= form_for @event do |f| %>
+
+  <%= f.label :title, class: 'sep-fixed' %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :description, class: 'sep-fixed' %>
+  <%= f.text_area :description, class: 'form-control', rows: 7 %>
+
+  <%= f.label :date, class: 'sep-fixed' %>
+  <%= f.date_field :date, class: 'form-control' %>
+
+  <%= f.label :location, class: 'sep-fixed' %>
+  <%= f.text_field :location, class: 'form-control' %>
+
+  <%= f.submit "Create event", class: 'btn btn-success sep-fixed' %>
+<% end %>

@@ -1,0 +1,7 @@
+<h3 class='text-info center'>All events</h3>
+<ul class='events'>
+  <%= render @events %>
+</ul>
+<div class="center-pagination">
+  <%= will_paginate @events %>
+</div>

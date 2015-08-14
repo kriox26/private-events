@@ -1,0 +1,20 @@
+<div class='panel panel-info'>
+  <li>
+	<div class='panel-heading'>
+	  <h4 class="white-heading"><%= event.title %></h4>
+	</div>
+	<div class='panel-body'>
+	  <div class='event-description'>
+		<%= event.description %>
+	  </div>
+	  <div class='loc-time'>
+		<p class='event-location text-muted'>
+		  <span class='glyphicon glyphicon-road'></span> <%= event.location%>
+		</p>
+		<p class="event-date">
+		  <span class='glyphicon glyphicon-time'></span> <%= event.date.strftime("%b %d, %Y")%>
+		</p>
+	  </div>
+	</div>
+  </li>
+</div>
