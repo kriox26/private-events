@@ -1,21 +1,38 @@
-<div class='panel panel-info'>
-  <div class='panel-heading'>
-	<h4 class="white-heading"><%= @event.title.capitalize %></h4>
-  </div>
-  <div class='panel-body'>
-	<div class='event-creator'>
-	  <%= User.find(@event.creator_id).name %>
+<div class='row'>
+<div class='col-md-4'>
+  <div class='panel panel-info'>
+	<div class='panel-heading'>
+	  <h4 class='white-heading'>Users attending</h4>
 	</div>
-	<div class='event-description'>
-	  <%= @event.description %>
-	</div>
-	<div class='loc-time'>
-	  <p class='event-location text-muted'>
-		<span class='glyphicon glyphicon-road'></span> <%= @event.location%>
-	  </p>
-	  <p class="event-date">
-		<span class='glyphicon glyphicon-time'></span> <%= @event.date.strftime("%b %d, %Y")%>
-	  </p>
+	<div class='panel-body'>
+	  <%= render @attendees %>
 	</div>
   </div>
+</div>
+<div class='col-md-8'>
+  <div class='panel panel-info'>
+	<div class='panel-heading'>
+	  <h4 class="white-heading"><%= @event.title.capitalize %></h4>
+	</div>
+	<div class='panel-body'>
+	  <div class='event-creator'>
+		<%= User.find(@event.creator_id).name %>
+	  </div>
+	  <div class='event-description'>
+		<%= @event.description %>
+	  </div>
+	  <div class='loc-time'>
+		<p class='event-location text-muted'>
+		  <span class='glyphicon glyphicon-road'></span> <%= @event.location%>
+		</p>
+		<p class="event-date">
+		  <span class='glyphicon glyphicon-time'></span> <%= @event.date.strftime("%b %d, %Y")%>
+		</p>
+	  </div>
+	</div>
+  </div>
+</div>
+</div>
+<div class='row'>
+  <%= will_paginate @attendees %>
 </div>

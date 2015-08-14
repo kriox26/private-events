@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token
 
   # Associations
-  has_many :created_events, class_name: "Event", foreign_key: :creator_id, dependent: :destroy
+  has_many :created_events, class_name: "Event", foreign_key: :creator_id
+  has_many :invites, foreign_key: :attendee_id
+  has_many :attended_events, through: :invites
 
 
   # Generates a digest for the given string
@@ -30,4 +32,5 @@ class User < ActiveRecord::Base
 	return false if digest.nil?
 	BCrypt::Password.new(digest).is_password?(token)
   end
+
 end

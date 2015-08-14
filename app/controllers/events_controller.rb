@@ -16,6 +16,7 @@ class EventsController < ApplicationController
 
   def show
 	@event = Event.find(params[:id])
+	@attendees = @event.attendees.paginate(page: params[:page]).order(created_at: :desc)
   end
 
   def index
