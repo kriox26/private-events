@@ -1,0 +1,22 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.not-fixed{
+  margin-top: 20px;
+}
+
+
+.footer{
+  border-top: 1px solid #eaeaea;
+  // background-color: #eaeaea;
+  margin-top: 5px;
+}
+
+.my-footer{
+  margin-top: 5px;
+  // background-color: #eaeaea;
+}
+
+.my-footer > p, small{
+  margin-right: 5px;
+}
