@@ -1,10 +1,9 @@
 class User < ActiveRecord::Base
+  self.per_page = 16
   attr_accessor :remember_token
 
   # Associations
   has_many :created_events, class_name: "Event", foreign_key: :creator_id, dependent: :destroy
-
-
 
 
   # Generates a digest for the given string
