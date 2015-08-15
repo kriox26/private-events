@@ -33,3 +33,7 @@
 	<% end %>
   </div>
 </div>
+<% if @upcoming_events.empty? && @past_events.empty? %>
+  <%= @upcoming_events.count %>
+  <%= @past_events.count %>
+<% end %>

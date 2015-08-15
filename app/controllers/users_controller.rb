@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 	@user   = User.find(params[:id])
 	@events = @user.created_events.paginate(page: params[:page]).order(created_at: :desc)
 	@attended_events = @user.attended_events.paginate(page: params[:page]).order(created_at: :desc)
+	@upcoming_events = @user.upcoming_events
   end
 
 end

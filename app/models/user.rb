@@ -33,4 +33,19 @@ class User < ActiveRecord::Base
 	BCrypt::Password.new(digest).is_password?(token)
   end
 
+  # Returns user upcoming events
+  def upcoming_events
+	self.attended_events.select { |event| event.date < Time.zone.now }
+  end
+
+  # Returns all past events
+  def past_events
+	self.attended_events.date > Time.zone.now
+  end
+
+  # Forgets a user
+  def forget
+	update_attribute(:remember_digest, nil)
+  end
+
 end
