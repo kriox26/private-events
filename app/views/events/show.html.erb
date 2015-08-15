@@ -5,7 +5,11 @@
 	  <h4 class='white-heading'>Users attending</h4>
 	</div>
 	<div class='panel-body'>
-	  <%= render @attendees %>
+	  <% if !@attendees.nil? %>
+		<%= render @attendees %>
+	  <% else %>
+	    <h4 class='text-warning events-heading'>There are no users attending to this event</h4>
+	  <% end %>
 	</div>
   </div>
 </div>
@@ -33,6 +37,8 @@
   </div>
 </div>
 </div>
-<div class='row'>
-  <%= will_paginate @attendees %>
-</div>
+<% if !@attendees.nil? %>
+  <div class='row'>
+	<%= will_paginate @attendees %>
+  </div>
+<% end %>
