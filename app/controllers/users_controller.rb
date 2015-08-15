@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
 	@user = User.new(name: params[:user][:name], email: params[:user][:email])
 	if @user.save
+	  log_in @user
 	  flash[:success] = "Welcome to the Event handler app!"
 	  redirect_to root_url
 	else
