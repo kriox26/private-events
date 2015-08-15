@@ -28,19 +28,19 @@ class User < ActiveRecord::Base
 
   # Returns true if the users remember_token matches the database digest
   def authenticated?(token)
-	digest = User.remember_digest
+	digest = self.remember_digest
 	return false if digest.nil?
 	BCrypt::Password.new(digest).is_password?(token)
   end
 
   # Returns user upcoming events
   def upcoming_events
-	self.attended_events.select { |event| event.date < Time.zone.now }
+	self.attended_events.to_a.select { |event| event.date > Time.zone.now }
   end
 
   # Returns all past events
   def past_events
-	self.attended_events.date > Time.zone.now
+	self.attended_events.to_a.select { |event| event.date < Time.zone.now }
   end
 
   # Forgets a user

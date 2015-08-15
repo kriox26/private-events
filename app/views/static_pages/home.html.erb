@@ -1,9 +1,15 @@
 <div class="jumbotron">
   <h1 class='text-info'>Welcome to the Events handler app!</h1>
   <p>
-	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-	vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-	no sea takimata sanctus est Lorem ipsum dolor sit amet.
+	Associations project, from TOP: You want to build a site similar to a private Eventbrite which allows users to create events and then manage user signups. Users can create events and send invitations and parties (sound familiar?). Events take place at a specific date and at a location (which you can just store as a string, like "Andy's House").
+
+A user can create events. A user can attend many events. An event can be attended by many users. This will require you to model many-to-many relationships and also to be very conscious about your foreign keys and class names (hint: you won't be able to just rely on Rails' defaults like you have before).
   </p>
+  <center>
+	<% if logged_in? %>
+	  <%= link_to "Create an event!", new_event_path, class: "btn btn-lg btn-info"  %>
+	<% else %>
+	  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-info" %>
+	<% end %>
+</center>
 </div>

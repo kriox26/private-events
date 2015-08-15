@@ -23,17 +23,20 @@
   </div>
 </div>
 <div class='row draw-line'>
-  <div class='col-md-4'></div>
-  <div class='col-md-8'>
-	<% if @attended_events.any? %>
-	  <h4 class='text-primary events-heading'>Events attending to(<%= @attended_events.count %>)</h4>
-	  <%= render @attended_events %>
+  <div class='col-md-6'>
+	<% if @upcoming_events.any? %>
+	  <h4 class='text-primary events-heading'>Upcoming events(<%= @upcoming_events.count %>)</h4>
+	  <%= render @upcoming_events %>
 	<% else %>
-	  <h4 class='text-warning'>This user has not been invited to attend to any event!</h4>
+	  <h4 class='text-warning'>You have no upcoming events</h4>
+	<% end %>
+  </div>
+  <div class='col-md-6'>
+	<% if @past_events.any? %>
+	  <h4 class='text-primary events-heading'>Past events(<%= @past_events.count %>)</h4>
+	  <%= render @past_events %>
+	<% else %>
+	  <h4 class='text-warning'>You have no past events</h4>
 	<% end %>
   </div>
 </div>
-<% if @upcoming_events.empty? && @past_events.empty? %>
-  <%= @upcoming_events.count %>
-  <%= @past_events.count %>
-<% end %>
