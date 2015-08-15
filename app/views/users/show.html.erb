@@ -14,11 +14,22 @@
   </div>
   <div class='col-md-8'>
 	<h4 class='text-primary events-heading'>My events(<%= @user.created_events.count%>)</h4>
-	<% if @events %>
+	<% if @events.any? %>
 	  <%= render @events %>
 	<% else %>
 	  <h4 class="text-warning">This user has no events yet!</h4>
 	<% end %>
 	<%= will_paginate @events %>
+  </div>
+</div>
+<div class='row draw-line'>
+  <div class='col-md-4'></div>
+  <div class='col-md-8'>
+	<% if @attended_events.any? %>
+	  <h4 class='text-primary events-heading'>Events attending to(<%= @attended_events.count %>)</h4>
+	  <%= render @attended_events %>
+	<% else %>
+	  <h4 class='text-warning'>This user has not been invited to attend to any event!</h4>
+	<% end %>
   </div>
 </div>

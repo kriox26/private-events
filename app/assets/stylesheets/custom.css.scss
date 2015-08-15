@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.draw-line{
+  border-top: 1px slod #eaeaea;
+  margin-top: 20px;
+}
 /* footer */
 .not-fixed{
   margin-top: 60px;
