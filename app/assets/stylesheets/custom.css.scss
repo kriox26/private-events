@@ -54,6 +54,17 @@
   margin-top: 3px;
   text-align: center;
   margin-bottom: 10px;
+  // overflow: hidden;
+  // -ms-text-overflow: ellipsis;
+  // -o-text-overflow: ellipsis;
+  // text-overflow: ellipsis;
+  display: block;
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  // white-space: nowrap;
+  white-space:wrap;
+  overflow: hidden;
 }
 .event-date{
   font-weight: normal;

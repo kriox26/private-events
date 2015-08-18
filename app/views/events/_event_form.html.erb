@@ -7,16 +7,15 @@
   <%= f.label :description, class: 'sep-fixed' %>
   <%= f.text_area :description, class: 'form-control', rows: 7, placeholder: 'Is a meetup to talk about the Ruby programming language and it\'s applications' %>
 
+  <%= f.label :location, class: 'sep-fixed' %>
+  <%= f.text_field :location, class: 'form-control', placeholder: 'Some place!' %>
+
+  <%= f.label :time, class: 'sep-fixed' %>
+  <%= f.text_field :time, class: 'form-control', placeholder: '15:00' %>
+
   <%= f.label :date, class: 'sep-fixed' %>
   <%= f.date_select :date, class: 'form-control' %>
   <br />
-
-  <%= f.label :start_time , class: 'sep-fixed' %>
-  <%= f.time_select :start_time, class: 'form-control' %>
-  <br />
-
-  <%= f.label :location, class: 'sep-fixed' %>
-  <%= f.text_field :location, class: 'form-control', placeholder: 'Some place!' %>
 
   <%= f.submit "Create event", class: 'btn btn-success sep-fixed' %>
 <% end %>
