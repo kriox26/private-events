@@ -7,6 +7,16 @@ class User < ActiveRecord::Base
   has_many :invites, foreign_key: :attendee_id
   has_many :attended_events, through: :invites
 
+  # Callbacks
+  before_save :downcase_email
+
+  # Validatons
+  validates :name, presence: true, length: { minimum: 5 , maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: 	true , length: { maximum: 255 },
+					format: 	{ with: VALID_EMAIL_REGEX },
+					uniqueness: { case_sensitive: false }
+
 
   # Generates a digest for the given string
   def User.digest(string)
@@ -47,5 +57,12 @@ class User < ActiveRecord::Base
   def forget
 	update_attribute(:remember_digest, nil)
   end
+
+  private
+
+	# Converts email to all lowercase
+	def downcase_email
+	  self.email = email.downcase
+	end
 
 end
