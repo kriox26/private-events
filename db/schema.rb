@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814225833) do
+ActiveRecord::Schema.define(version: 20150818162940) do
 
   create_table "events", force: :cascade do |t|
     t.string   "location"
-    t.datetime "date"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "title"
     t.integer  "creator_id"
+    t.date     "date"
+    t.time     "start_time"
   end
 
   add_index "events", ["creator_id"], name: "index_events_on_creator_id"
+  add_index "events", ["date", "start_time", "creator_id"], name: "index_events_on_date_and_start_time_and_creator_id", unique: true
 
   create_table "invites", force: :cascade do |t|
     t.integer  "attendee_id"
