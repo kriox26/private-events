@@ -10,6 +10,6 @@ class Event < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 50 }
   validates :location, presence: true
   validates :description, presence: true, length: { miminum: 30, maximum: 255 }
-  validates_datetime :date, on_or_after: lambda { Date.current }
+  validates_datetime :date, on_or_after: lambda { Date.today }, presence: true, message: "Date can't be empty and must be valid."
 
 end

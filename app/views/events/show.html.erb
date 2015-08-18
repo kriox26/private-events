@@ -20,13 +20,13 @@
 	</div>
 	<div class='panel-body'>
 	  <div class='event-creator'>
-		<%= User.find(@event.creator_id).name %>
+		Creator: <%= User.find(@event.creator_id).name %>
 	  </div>
 	  <div class='event-description'>
 		<%= @event.description %>
 	  </div>
 	  <div class='loc-time'>
-		<p class='event-location text-muted'>
+		<p class='event-date text-muted'>
 		  <span class='glyphicon glyphicon-road'></span> <%= @event.location%>
 		</p>
 		<p class="event-date">
