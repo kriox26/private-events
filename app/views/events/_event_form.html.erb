@@ -1,20 +1,17 @@
 <%= form_for @event do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :title, class: 'sep-fixed' %>
+  <%= f.label :title %>
   <%= f.text_field :title, class: 'form-control', placeholder: 'Ruby meetup' %>
 
-  <%= f.label :description, class: 'sep-fixed' %>
+  <%= f.label :description %>
   <%= f.text_area :description, class: 'form-control', rows: 7, placeholder: 'Is a meetup to talk about the Ruby programming language and it\'s applications' %>
 
-  <%= f.label :location, class: 'sep-fixed' %>
+  <%= f.label :location %>
   <%= f.text_field :location, class: 'form-control', placeholder: 'Some place!' %>
 
-  <%= f.label :time, class: 'sep-fixed' %>
-  <%= f.text_field :time, class: 'form-control', placeholder: '15:00' %>
-
-  <%= f.label :date, class: 'sep-fixed' %>
-  <%= f.date_select :date, class: 'form-control' %>
+  <%= f.label :date %>
+  <%= f.datetime_select :date, class: 'form-control' %>
   <br />
 
   <%= f.submit "Create event", class: 'btn btn-success sep-fixed' %>
