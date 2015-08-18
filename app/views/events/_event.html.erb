@@ -3,6 +3,9 @@
 	<h4 class="white-heading"><%= link_to event.title.capitalize, event %></h4>
   </div>
   <div class='panel-body'>
+	<div class='event-creator'>
+	  Creator: <%= User.find(event.creator_id).name %>
+  </div>
 	<div class='event-description'>
 	  <%= event.description %>
 	</div>
@@ -11,7 +14,7 @@
 		<span class='glyphicon glyphicon-road'></span> <%= event.location%>
 	  </p>
 	  <p class="event-date">
-		<span class='glyphicon glyphicon-time'></span> <%= event.date.strftime("%b %d, %Y")%>
+		<span class='glyphicon glyphicon-time'></span> <%= event.date.strftime("%A, %d %b %Y %l:%M %p")%>
 	  </p>
 	</div>
   </div>

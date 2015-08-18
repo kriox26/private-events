@@ -3,6 +3,7 @@
 	<h1>User signup</h1>
 	<br />
 	<%= form_for @user do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
 	  <%= f.label :name %>
 	  <%= f.text_field :name, class: 'form-control' %>
 
