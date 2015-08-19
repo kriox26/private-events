@@ -2,10 +2,14 @@
 <div class='col-md-4'>
   <div class='panel panel-info'>
 	<div class='panel-heading'>
-	  <h4 class='white-heading attendees'>Users attending(<%= @attendees.count %>)</h4>
+	  <% if !@attendees.nil? and @attendees.count != 0 %>
+		<h4 class='white-heading attendees'>Users attending(<%= @attendees.count %>)</h4>
+	  <% else %>
+		  <h4 class='white-heading'>Invite some users!</h4>
+	  <% end %>
 	</div>
 	<div class='panel-body'>
-	  <% if !@attendees.nil? %>
+	  <% if !@attendees.nil? and @attendees.count != 0 %>
 		<%= render @attendees %>
 	  <% else %>
 	    <h4 class='text-warning events-heading'>There are no users attending to this event</h4>
