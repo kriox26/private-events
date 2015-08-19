@@ -35,6 +35,13 @@
 	  </div>
 	</div>
   </div>
+  <div class="attend-form">
+	<% if @event.date < Time.zone.now %>
+	  <h4 class='danger'>This event has already finished!</h4>
+	<% else %>
+	  <%= render 'attend_form' if logged_in? %>
+	<% end %>
+  </div>
 </div>
 </div>
 <% if !@attendees.nil? %>
