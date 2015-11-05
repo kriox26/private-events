@@ -5,4 +5,4 @@ From **TOP**: You want to build a site similar to a private Eventbrite which all
 A user can create events. A user can attend many events. An event can be attended by many users. This will require you to model many-to-many relationships and also to be very conscious about your foreign keys and class names (hint: you won't be able to just rely on Rails' defaults like you have before).
 
 
-##### Try the [application](https://polar-refuge-9964.herokuapp.com)
+## [Live application](https://polar-refuge-9964.herokuapp.com)
